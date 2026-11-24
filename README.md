@@ -1,6 +1,6 @@
 # Art 2
 
-A minimal, mobile-first gallery. Drop in a photograph, add one line to a manifest, and it appears on the page.
+A minimal, mobile-first gallery. Live at [art-2-liart.vercel.app](https://art-2-liart.vercel.app). Drop in a photograph, add one line to a manifest, and it appears on the page.
 
 ## Add a photograph
 
