@@ -1,6 +1,6 @@
-# Art 2
+# Magic Lotus
 
-A mobile-first gallery of hand-drawn works. Live at [art-2-liart.vercel.app](https://art-2-liart.vercel.app).
+A mobile-first gallery of hand-drawn works. Live at [magic-lotus.vercel.app](https://magic-lotus.vercel.app). The previous address, [art-2-liart.vercel.app](https://art-2-liart.vercel.app), still works.
 
 ## Add a photograph
 
