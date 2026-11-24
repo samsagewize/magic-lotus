@@ -1,6 +1,8 @@
 # Magic Lotus
 
-A mobile-first gallery of hand-drawn works. Live at [magic-lotus.vercel.app](https://magic-lotus.vercel.app). The previous address, [art-2-liart.vercel.app](https://art-2-liart.vercel.app), still works.
+A mobile-first storybook of hand-drawn works. Live at [magic-lotus.vercel.app](https://magic-lotus.vercel.app). The previous address, [art-2-liart.vercel.app](https://art-2-liart.vercel.app), still works.
+
+The site opens on an illustrated cover. Tap **Open**, or swipe, to turn to the contents page. From there, [The Story](/story) and [The Art](/art) are the next pages in the book. A **Skip** link bypasses the cover. Once the book has been opened, `sessionStorage` remembers it for the rest of the visit, so going back does not replay the intro. If JavaScript is off, the contents page is shown directly.
 
 ## Add a photograph
 
@@ -19,7 +21,7 @@ A mobile-first gallery of hand-drawn works. Live at [magic-lotus.vercel.app](htt
 
 `file` and `title` are the important fields. `thumb`, `year`, and `medium` are optional.
 
-3. Add a matching card to the gallery in `index.html` so the work is visible even if JavaScript does not load. Point the thumbnail at `thumb` (or `file`) and `data-full` at the large image.
+3. Add a matching card to the gallery in `art.html` so the work is visible even if JavaScript does not load. Point the thumbnail at `thumb` (or `file`) and `data-full` at the large image. Add a contents link in `index.html` if you want it listed on the first page.
 4. Commit and push, then redeploy so the new work is live.
 
 ## Preview locally

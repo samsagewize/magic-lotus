@@ -4,22 +4,30 @@
     {
       "file": "untitled-orange.jpg",
       "thumb": "untitled-orange-thumb.jpg",
-      "title": "Untitled (Orange)"
+      "title": "Untitled (Orange)",
+      "edition": "1/1 Original",
+      "medium": "Hand-drawn color pencil on paper"
     },
     {
       "file": "untitled-magenta.jpg",
       "thumb": "untitled-magenta-thumb.jpg",
-      "title": "Untitled (Magenta)"
+      "title": "Untitled (Magenta)",
+      "edition": "1/1 Original",
+      "medium": "Hand-drawn color pencil on paper"
     },
     {
       "file": "untitled-blue.jpg",
       "thumb": "untitled-blue-thumb.jpg",
-      "title": "Untitled (Blue)"
+      "title": "Untitled (Blue)",
+      "edition": "1/1 Original",
+      "medium": "Hand-drawn color pencil on paper"
     },
     {
       "file": "untitled-green.jpg",
       "thumb": "untitled-green-thumb.jpg",
-      "title": "Untitled (Green)"
+      "title": "Untitled (Green)",
+      "edition": "1/1 Original",
+      "medium": "Hand-drawn color pencil on paper"
     }
   ]
 }

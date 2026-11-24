@@ -2,18 +2,22 @@
   const dialog = document.getElementById("lightbox");
   const image = document.getElementById("lightbox-image");
   const title = document.getElementById("lightbox-title");
+  const edition = document.getElementById("lightbox-edition");
+  const medium = document.getElementById("lightbox-medium");
   const closeBtn = document.getElementById("lightbox-close");
   const works = document.querySelectorAll(".work");
 
   function openWork(button) {
     const src = button.getAttribute("data-full");
     const name =
+      ((button.querySelector(".title") || {}).textContent || "").trim() ||
       button.getAttribute("aria-label") ||
-      (button.querySelector(".title") || {}).textContent ||
       "Untitled";
     image.src = src;
     image.alt = name;
     title.textContent = name;
+    if (edition) edition.textContent = "1/1 Original";
+    if (medium) medium.textContent = "Hand-drawn color pencil on paper";
     dialog.classList.remove("is-out");
     if (typeof dialog.showModal === "function") {
       dialog.showModal();
@@ -55,25 +59,4 @@
     event.preventDefault();
     closeLightbox();
   });
-
-  const reveal = document.querySelectorAll(".reveal");
-  const showAll = () => reveal.forEach((el) => el.classList.add("is-in"));
-
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-    );
-    reveal.forEach((el) => io.observe(el));
-    setTimeout(showAll, 1600);
-  } else {
-    showAll();
-  }
 })();

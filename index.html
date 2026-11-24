@@ -3,36 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        if (!sessionStorage.getItem("magic-lotus-opened")) {
+          document.documentElement.classList.add("show-cover");
+        }
+      } catch (e) {}
+    </script>
     <title>Magic Lotus</title>
-    <meta
-      name="description"
-      content="Magic Lotus — hand-drawn creatures, shells, and gardens. Limited pieces soon."
-    />
+    <meta name="description" content="Magic Lotus — hand-drawn creatures, shells, and gardens. Limited pieces soon." />
     <meta name="theme-color" content="#f4ead8" />
     <link rel="canonical" href="https://magic-lotus.vercel.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Magic Lotus" />
     <meta property="og:title" content="Magic Lotus" />
-    <meta
-      property="og:description"
-      content="Hand-drawn creatures, shells, and gardens. Limited pieces soon."
-    />
+    <meta property="og:description" content="Magic Lotus — hand-drawn creatures, shells, and gardens. Limited pieces soon." />
     <meta property="og:url" content="https://magic-lotus.vercel.app/" />
-    <meta
-      property="og:image"
-      content="https://magic-lotus.vercel.app/images/untitled-magenta.jpg"
-    />
+    <meta property="og:image" content="https://magic-lotus.vercel.app/images/untitled-magenta.jpg" />
     <meta property="og:image:alt" content="Untitled (Magenta), a hand-drawn work from Magic Lotus" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Magic Lotus" />
-    <meta
-      name="twitter:description"
-      content="Hand-drawn creatures, shells, and gardens. Limited pieces soon."
-    />
-    <meta
-      name="twitter:image"
-      content="https://magic-lotus.vercel.app/images/untitled-magenta.jpg"
-    />
+    <meta name="twitter:description" content="Magic Lotus — hand-drawn creatures, shells, and gardens. Limited pieces soon." />
+    <meta name="twitter:image" content="https://magic-lotus.vercel.app/images/untitled-magenta.jpg" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,9 +34,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
-    <script>
-      document.documentElement.classList.add("js");
-    </script>
   </head>
   <body>
     <div class="atmosphere" aria-hidden="true">
@@ -80,65 +70,22 @@
       </div>
     </div>
 
-    <header class="site-header">
-      <a class="mark" href="/">Magic Lotus</a>
-    </header>
-
-    <div class="soon-banner reveal" role="status">
-      <div class="soon-frame">
-        <p class="soon-text"><span>Limited pieces soon</span></p>
-      </div>
-    </div>
-
-    <main>
-      <section class="story reveal" id="story">
-        <h1>Story</h1>
-        <p>
-          Every piece starts with a blank page and a handful of color pencils.
-          No digital tools, no undo, just pressure, patience, and layer after
-          layer of color.
-        </p>
-        <p>
-          Each line, dot, and swirl is drawn by hand, building creatures,
-          shells, and gardens that feel like they grew on the paper rather than
-          being planned. These works live somewhere between nature and dreams:
-          part ocean, part garden, all heart.
-        </p>
-        <p class="soon-end">Limited pieces soon.</p>
-      </section>
-
-      <div class="ribbon-wrap" aria-hidden="true">
-        <img class="ribbon" src="/images/ribbon.svg" alt="" />
-      </div>
-
-      <section id="gallery" class="gallery" aria-label="Gallery">
-        <button
-          class="work reveal"
-          type="button"
-          style="--i: 0"
-          data-full="/images/untitled-orange.jpg"
-          aria-label="Untitled (Orange)"
-        >
-          <span class="frame">
-            <img
-              src="/images/untitled-orange-thumb.jpg"
-              alt=""
-              width="800"
-              height="642"
-              decoding="async"
-            />
-          </span>
-          <span class="caption"><span class="title">Untitled (Orange)</span></span>
-        </button>
-
-        <button
-          class="work reveal"
-          type="button"
-          style="--i: 1"
-          data-full="/images/untitled-magenta.jpg"
-          aria-label="Untitled (Magenta)"
-        >
-          <span class="frame">
+    <div
+      class="cover"
+      id="cover"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cover-title"
+      aria-hidden="true"
+    >
+      <button type="button" class="cover-skip" id="cover-skip">Skip</button>
+      <div class="book" id="book">
+        <div class="book-back" aria-hidden="true"></div>
+        <div class="book-spine" aria-hidden="true"></div>
+        <div class="book-cover">
+          <p class="cover-kicker">A storybook of drawings</p>
+          <h1 id="cover-title">Magic Lotus</h1>
+          <div class="cover-plate">
             <img
               src="/images/untitled-magenta-thumb.jpg"
               alt=""
@@ -146,66 +93,68 @@
               height="667"
               decoding="async"
             />
-          </span>
-          <span class="caption"><span class="title">Untitled (Magenta)</span></span>
-        </button>
+          </div>
+          <p class="cover-soon">Limited pieces soon</p>
+          <p class="cover-edition">Each piece is a 1/1 original</p>
+          <button type="button" class="cover-open" id="cover-open">Open</button>
+        </div>
+      </div>
+      <p class="cover-hint">Tap Open or swipe to begin</p>
+    </div>
 
-        <button
-          class="work reveal"
-          type="button"
-          style="--i: 2"
-          data-full="/images/untitled-blue.jpg"
-          aria-label="Untitled (Blue)"
-        >
-          <span class="frame">
-            <img
-              src="/images/untitled-blue-thumb.jpg"
-              alt=""
-              width="554"
-              height="800"
-              decoding="async"
-            />
-          </span>
-          <span class="caption"><span class="title">Untitled (Blue)</span></span>
-        </button>
+    <div class="site" id="site">
+    <header class="site-header">
+      <a class="mark" href="/">Magic Lotus</a>
+      <nav class="site-nav" aria-label="Book">
+        <a href="/" aria-current="page">Contents</a>
+        <a href="/story">Story</a>
+        <a href="/art">Art</a>
+      </nav>
+    </header>
 
-        <button
-          class="work reveal"
-          type="button"
-          style="--i: 3"
-          data-full="/images/untitled-green.jpg"
-          aria-label="Untitled (Green)"
-        >
-          <span class="frame">
-            <img
-              src="/images/untitled-green-thumb.jpg"
-              alt=""
-              width="786"
-              height="800"
-              decoding="async"
-            />
-          </span>
-          <span class="caption"><span class="title">Untitled (Green)</span></span>
-        </button>
-      </section>
-    </main>
+      <div class="soon-banner reveal" role="status">
+        <div class="soon-frame">
+          <p class="soon-text"><span>Limited pieces soon</span></p>
+        </div>
+      </div>
 
-    <footer class="site-footer">
-      <p>Hand-drawn on paper. Limited pieces soon.</p>
-    </footer>
+      <main>
+        <p class="page-kicker reveal">The first page</p>
+        <h1 class="contents-title reveal" id="contents-title" tabindex="-1">Contents</h1>
+        <p class="edition-note reveal">Every piece is a 1/1 original, hand-drawn in color pencil on paper.</p>
+        <ol class="toc">
+          <li class="reveal" style="--i: 0">
+            <a href="/story">
+              <span class="toc-num">I</span>
+              <span class="toc-body">
+                <span class="toc-title">The Story</span>
+                <span class="toc-desc">How these creatures, shells, and gardens came to the page.</span>
+              </span>
+            </a>
+          </li>
+          <li class="reveal" style="--i: 1">
+            <a href="/art">
+              <span class="toc-num">II</span>
+              <span class="toc-body">
+                <span class="toc-title">The Art</span>
+                <span class="toc-desc">Four hand-drawn works, waiting inside the book.</span>
+              </span>
+            </a>
+          </li>
+        </ol>
+        <ul class="toc-works reveal">
+          <li><a href="/art#orange">Untitled (Orange)</a></li>
+          <li><a href="/art#magenta">Untitled (Magenta)</a></li>
+          <li><a href="/art#blue">Untitled (Blue)</a></li>
+          <li><a href="/art#green">Untitled (Green)</a></li>
+        </ul>
+      </main>
 
-    <dialog id="lightbox" class="lightbox" aria-labelledby="lightbox-title">
-      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">
-        Close
-      </button>
-      <figure class="lightbox-figure">
-        <img id="lightbox-image" alt="" />
-        <figcaption>
-          <h2 id="lightbox-title"></h2>
-        </figcaption>
-      </figure>
-    </dialog>
+      <footer class="site-footer">
+        <p>Hand-drawn on paper. Limited pieces soon.</p>
+      </footer>
+    </div>
 
-    <script src="/gallery.js" defer></script>
+    <script src="/site.js" defer></script>
   </body>
 </html>
