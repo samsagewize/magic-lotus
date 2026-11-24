@@ -1,119 +1,79 @@
 (function () {
-  const gallery = document.getElementById("gallery");
-  const empty = document.getElementById("empty");
   const dialog = document.getElementById("lightbox");
   const image = document.getElementById("lightbox-image");
   const title = document.getElementById("lightbox-title");
-  const meta = document.getElementById("lightbox-meta");
-  const kicker = document.getElementById("lightbox-kicker");
   const closeBtn = document.getElementById("lightbox-close");
+  const works = document.querySelectorAll(".work");
 
-  function metaLine(work) {
-    return [work.year, work.medium].filter(Boolean).join("  ·  ");
-  }
-
-  function openWork(work) {
-    const src = "/images/" + encodeURIComponent(work.file);
+  function openWork(button) {
+    const src = button.getAttribute("data-full");
+    const name =
+      button.getAttribute("aria-label") ||
+      (button.querySelector(".title") || {}).textContent ||
+      "Untitled";
     image.src = src;
-    image.alt = work.placeholder
-      ? "Placeholder: " + (work.title || "Untitled")
-      : work.title || "Untitled";
-    title.textContent = work.title || "Untitled";
-    const line = metaLine(work);
-    meta.textContent = line;
-    meta.hidden = !line;
-    kicker.hidden = !work.placeholder;
+    image.alt = name;
+    title.textContent = name;
+    dialog.classList.remove("is-out");
     if (typeof dialog.showModal === "function") {
       dialog.showModal();
     } else {
       dialog.setAttribute("open", "");
     }
+    requestAnimationFrame(() => dialog.classList.add("is-open"));
   }
 
   function closeLightbox() {
-    if (dialog.open) dialog.close();
-    image.removeAttribute("src");
+    dialog.classList.remove("is-open");
+    dialog.classList.add("is-out");
+    const finish = () => {
+      if (dialog.open) dialog.close();
+      dialog.classList.remove("is-out");
+      image.removeAttribute("src");
+    };
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setTimeout(finish, reduced ? 500 : 280);
   }
 
-  function render(data) {
-    const works = Array.isArray(data.works) ? data.works : [];
-    gallery.replaceChildren();
-
-    if (!works.length) {
-      empty.hidden = false;
-      return;
-    }
-
-    empty.hidden = true;
-
-    works.forEach((work) => {
-      if (!work || !work.file) return;
-
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "work";
-      button.setAttribute(
-        "aria-label",
-        (work.placeholder ? "Placeholder, " : "") +
-          (work.title || "Untitled") +
-          (work.year ? ", " + work.year : "")
-      );
-
-      const frame = document.createElement("div");
-      frame.className = "frame";
-
-      const img = document.createElement("img");
-      img.src = "/images/" + encodeURIComponent(work.file);
-      img.alt = "";
-      img.loading = "lazy";
-      img.decoding = "async";
-      frame.appendChild(img);
-
-      const caption = document.createElement("div");
-      caption.className = "caption";
-
-      if (work.placeholder) {
-        const badge = document.createElement("p");
-        badge.className = "kicker";
-        badge.textContent = "Placeholder";
-        caption.appendChild(badge);
-      }
-
-      const heading = document.createElement("h2");
-      heading.textContent = work.title || "Untitled";
-      caption.appendChild(heading);
-
-      const line = metaLine(work);
-      if (line) {
-        const details = document.createElement("p");
-        details.className = "meta";
-        details.textContent = line;
-        caption.appendChild(details);
-      }
-
-      button.append(frame, caption);
-      button.addEventListener("click", () => openWork(work));
-      gallery.appendChild(button);
+  works.forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.remove("wobble");
+      void button.offsetWidth;
+      button.classList.add("wobble");
+      openWork(button);
     });
-  }
+    button.addEventListener("animationend", (event) => {
+      if (event.animationName === "wobble") button.classList.remove("wobble");
+    });
+  });
 
   closeBtn.addEventListener("click", closeLightbox);
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) closeLightbox();
   });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && dialog.open) closeLightbox();
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeLightbox();
   });
 
-  fetch("/gallery.json")
-    .then((response) => {
-      if (!response.ok) throw new Error("Could not load gallery.json");
-      return response.json();
-    })
-    .then(render)
-    .catch((error) => {
-      console.error(error);
-      empty.textContent = "The gallery could not be loaded.";
-      empty.hidden = false;
-    });
+  const reveal = document.querySelectorAll(".reveal");
+  const showAll = () => reveal.forEach((el) => el.classList.add("is-in"));
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    reveal.forEach((el) => io.observe(el));
+    setTimeout(showAll, 1600);
+  } else {
+    showAll();
+  }
 })();

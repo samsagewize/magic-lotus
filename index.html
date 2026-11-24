@@ -4,30 +4,170 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Art 2</title>
-    <meta name="description" content="Art 2 — a quiet collection." />
-    <meta name="theme-color" content="#f7f4ef" />
+    <meta
+      name="description"
+      content="Art 2 — hand-drawn creatures, shells, and gardens. Limited pieces soon."
+    />
+    <meta name="theme-color" content="#f4ead8" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
+    <div class="atmosphere" aria-hidden="true">
+      <div class="stipple"></div>
+      <div class="confetti-field">
+        <span class="dot" style="--x:6%;--y:12%;--s:7px;--c:#d94b2b;--d:18s;--t:2.4s"></span>
+        <span class="dot" style="--x:18%;--y:28%;--s:5px;--c:#2a8f8a;--d:22s;--t:3.1s"></span>
+        <span class="dot" style="--x:28%;--y:8%;--s:6px;--c:#6b3fa0;--d:26s;--t:2.8s"></span>
+        <span class="dot" style="--x:41%;--y:18%;--s:4px;--c:#2a3d8f;--d:20s;--t:3.6s"></span>
+        <span class="dot" style="--x:55%;--y:10%;--s:8px;--c:#c42d7a;--d:24s;--t:2.2s"></span>
+        <span class="dot" style="--x:68%;--y:22%;--s:5px;--c:#c8d94a;--d:19s;--t:2.9s"></span>
+        <span class="dot" style="--x:79%;--y:7%;--s:6px;--c:#1f8a8a;--d:27s;--t:3.3s"></span>
+        <span class="dot" style="--x:91%;--y:16%;--s:4px;--c:#e07a7a;--d:21s;--t:2.6s"></span>
+        <span class="dot" style="--x:11%;--y:48%;--s:6px;--c:#6b3fa0;--d:23s;--t:3s"></span>
+        <span class="dot" style="--x:23%;--y:62%;--s:8px;--c:#d94b2b;--d:29s;--t:2.5s"></span>
+        <span class="dot" style="--x:37%;--y:54%;--s:5px;--c:#2ec4b6;--d:17s;--t:3.4s"></span>
+        <span class="dot" style="--x:49%;--y:70%;--s:7px;--c:#2a3d8f;--d:25s;--t:2.7s"></span>
+        <span class="dot" style="--x:63%;--y:46%;--s:4px;--c:#c42d7a;--d:30s;--t:3.2s"></span>
+        <span class="dot" style="--x:74%;--y:58%;--s:6px;--c:#c8d94a;--d:18s;--t:2.3s"></span>
+        <span class="dot" style="--x:86%;--y:42%;--s:5px;--c:#d94b2b;--d:22s;--t:2.9s"></span>
+        <span class="dot" style="--x:94%;--y:66%;--s:7px;--c:#2a8f8a;--d:26s;--t:3.5s"></span>
+        <span class="dot" style="--x:8%;--y:82%;--s:5px;--c:#2ec4b6;--d:20s;--t:2.8s"></span>
+        <span class="dot" style="--x:31%;--y:88%;--s:7px;--c:#6b3fa0;--d:24s;--t:3.1s"></span>
+        <span class="dot" style="--x:52%;--y:92%;--s:4px;--c:#e07a7a;--d:28s;--t:2.4s"></span>
+        <span class="dot" style="--x:71%;--y:84%;--s:6px;--c:#2a3d8f;--d:19s;--t:3.3s"></span>
+        <span class="dot" style="--x:88%;--y:90%;--s:5px;--c:#c42d7a;--d:23s;--t:2.6s"></span>
+        <span class="dot" style="--x:15%;--y:72%;--s:4px;--c:#c8d94a;--d:21s;--t:3s"></span>
+      </div>
+      <div class="floaters">
+        <img class="floater f1" src="/images/untitled-orange-thumb.jpg" alt="" />
+        <img class="floater f2" src="/images/untitled-magenta-thumb.jpg" alt="" />
+        <img class="floater f3" src="/images/untitled-blue-thumb.jpg" alt="" />
+        <img class="floater f4" src="/images/untitled-green-thumb.jpg" alt="" />
+      </div>
+    </div>
+
     <header class="site-header">
       <a class="mark" href="/">Art 2</a>
     </header>
 
+    <div class="soon-banner reveal" role="status">
+      <div class="soon-frame">
+        <p class="soon-text"><span>Limited pieces soon</span></p>
+      </div>
+    </div>
+
     <main>
-      <h1 class="sr-only">Art 2 gallery</h1>
-      <section id="gallery" class="gallery" aria-label="Gallery"></section>
-      <p id="empty" class="empty" hidden>No works have been added yet.</p>
+      <section class="story reveal" id="story">
+        <h1>Story</h1>
+        <p>
+          Every piece starts with a blank page and a handful of color pencils.
+          No digital tools, no undo, just pressure, patience, and layer after
+          layer of color.
+        </p>
+        <p>
+          Each line, dot, and swirl is drawn by hand, building creatures,
+          shells, and gardens that feel like they grew on the paper rather than
+          being planned. These works live somewhere between nature and dreams:
+          part ocean, part garden, all heart.
+        </p>
+        <p class="soon-end">Limited pieces soon.</p>
+      </section>
+
+      <div class="ribbon-wrap" aria-hidden="true">
+        <img class="ribbon" src="/images/ribbon.svg" alt="" />
+      </div>
+
+      <section id="gallery" class="gallery" aria-label="Gallery">
+        <button
+          class="work reveal"
+          type="button"
+          style="--i: 0"
+          data-full="/images/untitled-orange.jpg"
+          aria-label="Untitled (Orange)"
+        >
+          <span class="frame">
+            <img
+              src="/images/untitled-orange-thumb.jpg"
+              alt=""
+              width="800"
+              height="642"
+              decoding="async"
+            />
+          </span>
+          <span class="caption"><span class="title">Untitled (Orange)</span></span>
+        </button>
+
+        <button
+          class="work reveal"
+          type="button"
+          style="--i: 1"
+          data-full="/images/untitled-magenta.jpg"
+          aria-label="Untitled (Magenta)"
+        >
+          <span class="frame">
+            <img
+              src="/images/untitled-magenta-thumb.jpg"
+              alt=""
+              width="800"
+              height="667"
+              decoding="async"
+            />
+          </span>
+          <span class="caption"><span class="title">Untitled (Magenta)</span></span>
+        </button>
+
+        <button
+          class="work reveal"
+          type="button"
+          style="--i: 2"
+          data-full="/images/untitled-blue.jpg"
+          aria-label="Untitled (Blue)"
+        >
+          <span class="frame">
+            <img
+              src="/images/untitled-blue-thumb.jpg"
+              alt=""
+              width="554"
+              height="800"
+              decoding="async"
+            />
+          </span>
+          <span class="caption"><span class="title">Untitled (Blue)</span></span>
+        </button>
+
+        <button
+          class="work reveal"
+          type="button"
+          style="--i: 3"
+          data-full="/images/untitled-green.jpg"
+          aria-label="Untitled (Green)"
+        >
+          <span class="frame">
+            <img
+              src="/images/untitled-green-thumb.jpg"
+              alt=""
+              width="786"
+              height="800"
+              decoding="async"
+            />
+          </span>
+          <span class="caption"><span class="title">Untitled (Green)</span></span>
+        </button>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <p>Placeholder studies stand in until photographs are added.</p>
+      <p>Hand-drawn on paper. Limited pieces soon.</p>
     </footer>
 
     <dialog id="lightbox" class="lightbox" aria-labelledby="lightbox-title">
@@ -37,9 +177,7 @@
       <figure class="lightbox-figure">
         <img id="lightbox-image" alt="" />
         <figcaption>
-          <p id="lightbox-kicker" class="kicker" hidden>Placeholder</p>
           <h2 id="lightbox-title"></h2>
-          <p id="lightbox-meta" class="meta"></p>
         </figcaption>
       </figure>
     </dialog>

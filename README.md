@@ -1,30 +1,26 @@
 # Art 2
 
-A minimal, mobile-first gallery. Live at [art-2-liart.vercel.app](https://art-2-liart.vercel.app). Drop in a photograph, add one line to a manifest, and it appears on the page.
+A mobile-first gallery of hand-drawn works. Live at [art-2-liart.vercel.app](https://art-2-liart.vercel.app).
 
 ## Add a photograph
 
-1. Put the image file in the `images/` folder. JPG, PNG, WEBP, or AVIF all work well.
+1. Put the image file in the `images/` folder. JPG, PNG, WEBP, or AVIF all work well. A smaller thumbnail, named `your-work-thumb.jpg`, is optional but keeps the page lighter.
 2. Add one object to the `works` array in `gallery.json`:
 
 ```json
 {
   "file": "evening-study.jpg",
+  "thumb": "evening-study-thumb.jpg",
   "title": "Evening Study",
   "year": "2026",
-  "medium": "Photograph"
+  "medium": "Colored pencil"
 }
 ```
 
-`file` and `title` are the important fields. `year` and `medium` are optional.
+`file` and `title` are the important fields. `thumb`, `year`, and `medium` are optional.
 
-The page reads `gallery.json` and builds the gallery from it. You do not need to edit the HTML.
-
-3. Commit and push, then redeploy so the new work is live.
-
-## Remove a placeholder
-
-The six studies already in the gallery are local SVG placeholders, labeled as such, so the layout can be seen before any photographs arrive. To take one out, delete its object from `gallery.json`. You can also delete the matching file in `images/`.
+3. Add a matching card to the gallery in `index.html` so the work is visible even if JavaScript does not load. Point the thumbnail at `thumb` (or `file`) and `data-full` at the large image.
+4. Commit and push, then redeploy so the new work is live.
 
 ## Preview locally
 
