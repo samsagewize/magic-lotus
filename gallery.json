@@ -1,0 +1,47 @@
+{
+  "title": "Art 2",
+  "works": [
+    {
+      "file": "placeholder-01.svg",
+      "title": "Study I",
+      "year": "2026",
+      "medium": "Placeholder",
+      "placeholder": true
+    },
+    {
+      "file": "placeholder-02.svg",
+      "title": "Field",
+      "year": "2026",
+      "medium": "Placeholder",
+      "placeholder": true
+    },
+    {
+      "file": "placeholder-03.svg",
+      "title": "Planes",
+      "year": "2026",
+      "medium": "Placeholder",
+      "placeholder": true
+    },
+    {
+      "file": "placeholder-04.svg",
+      "title": "Line",
+      "year": "2026",
+      "medium": "Placeholder",
+      "placeholder": true
+    },
+    {
+      "file": "placeholder-05.svg",
+      "title": "Horizon",
+      "year": "2026",
+      "medium": "Placeholder",
+      "placeholder": true
+    },
+    {
+      "file": "placeholder-06.svg",
+      "title": "Quiet Field",
+      "year": "2026",
+      "medium": "Placeholder",
+      "placeholder": true
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Art 2</title>
+    <meta name="description" content="Art 2 — a quiet collection." />
+    <meta name="theme-color" content="#f7f4ef" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="mark" href="/">Art 2</a>
+    </header>
+
+    <main>
+      <h1 class="sr-only">Art 2 gallery</h1>
+      <section id="gallery" class="gallery" aria-label="Gallery"></section>
+      <p id="empty" class="empty" hidden>No works have been added yet.</p>
+    </main>
+
+    <footer class="site-footer">
+      <p>Placeholder studies stand in until photographs are added.</p>
+    </footer>
+
+    <dialog id="lightbox" class="lightbox" aria-labelledby="lightbox-title">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">
+        Close
+      </button>
+      <figure class="lightbox-figure">
+        <img id="lightbox-image" alt="" />
+        <figcaption>
+          <p id="lightbox-kicker" class="kicker" hidden>Placeholder</p>
+          <h2 id="lightbox-title"></h2>
+          <p id="lightbox-meta" class="meta"></p>
+        </figcaption>
+      </figure>
+    </dialog>
+
+    <script src="/gallery.js" defer></script>
+  </body>
+</html>
